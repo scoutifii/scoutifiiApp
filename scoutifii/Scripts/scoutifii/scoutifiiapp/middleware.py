@@ -1,4 +1,4 @@
-from scoutify2.models import ActivityLog
+from scoutifiiapp.models import ActivityLog
 from datetime import datetime
 from django.utils.deprecation import MiddlewareMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
