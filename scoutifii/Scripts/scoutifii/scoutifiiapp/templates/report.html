@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Status Report {% endblock %}
+  {% block content %}
+  <div class="container">
+    <div class="report-cards">
+      <div class="card">
+          <h5 class="text-gry">Total Users</h5>
+
+          <!-- FONT SIZES -->
+           <div class="font-size">
+              <h1>{{active_users}}</h1>                
+           </div> 
+      </div>
+      <div class="card">
+          <h5 class="text-gry">Total Posts</h5>
+
+          <!-- FONT SIZES -->
+           <div class="font-size">
+              <h1>{{total_posts}}</h1>                
+           </div> 
+      </div>
+      <div class="card">
+          <h5 class="text-gry">Daily Users</h5>
+
+          <!-- FONT SIZES -->
+           <div class="font-size">
+              <h1>{{daily_users}}</h1>                
+           </div> 
+      </div>
+    </div>
+
+    <div class="container-bar">
+      <div id="container-bar"></div> 
+    </div>
+    <div class="posts-by-user">
+      <div id="no-of-posts-by-user"></div> 
+    </div>
+  </div>
+  {% endblock %}
+  

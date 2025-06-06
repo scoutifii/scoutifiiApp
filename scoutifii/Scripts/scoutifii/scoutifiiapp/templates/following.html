@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Profile - {{user_profile.user.username}}
+{% endblock %}
+{% block content %}
+  <div class="follow-info-detials">
+    <div class="following-col">
+        <h3>{{user_following}} &#9782;&nbsp; Following</h3>
+        <hr>
+        {% for user in user_following_list %}
+        <div>
+            <a href="profile/{{user.user}}"><img src="{{user.profile.profileimg.url}}" alt=""></a>
+            <h3>{{user.user}}</h3>
+            <a href="profile/{{user.user}}" class="follow-link">Follow</a>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,164 @@
+/*.main{
+    display: flex;
+    margin-top: 6rem;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    position: sticky;
+}
+.main button{
+    width: 6vw;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0;
+    margin-left: 15px;
+    backdrop-filter: blur(10px);
+}
+.main button:first-child{
+    background: #FFA500;
+    display: inline-flex;
+    border: 0;
+    outline: 0;
+    align-items: center;
+    border-radius: 3px;
+    padding: 6px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.main button:last-child{
+    background: #1500ff;
+    display: inline-flex;
+    border: 0;
+    outline: 0;
+    align-items: center;
+    border-radius: 3px;
+    padding: 6px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+#modelLoginBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+    object-fit: cover;
+}
+#modelLoginBox img{
+    width: 50px;
+    margin-left: 40%;
+    margin-top: 1rem;
+}
+.login-text{
+    padding: 20px 40px 40px 40px;
+    font-size: 14px;
+    line-height: 22px;
+}
+.login-text h2{
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 30%;
+    margin-bottom: 2rem;
+}
+.login-text form{
+    margin: 30px;
+    border-radius: 4px;
+    width: 80vw;
+}
+.login-text form input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: #555557;
+    padding: 12px 5% 13px;
+    color: #fff;
+}
+.login-text form button{
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background: #00ffee;
+    color: #fff;
+    padding: 12px 10px;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+.close-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+#modelSignupBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 42rem;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+}
+#modelSignupBox img{
+    width: 50px;
+    margin-left: 40%;
+    margin-top: 1rem;
+}
+.signup-text{
+    padding: 20px 40px;
+    font-size: 14px;
+    line-height: 22px;
+}
+.signup-text h2{
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 30%;
+    margin-bottom: 2rem;
+}
+.signup-text hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 12px 0;
+}
+.signup-text form{
+    margin: 30px;
+    border-radius: 4px;
+    width: 80vw;
+}
+.signup-text form input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: gray;
+    padding: 12px 30px;
+    resize: none;
+    color: #fff;
+}
+.field-icon {
+    float: right;
+    margin: -35px -25px;
+    position: fixed;
+    z-index: 99;
+}
+.signup-text form button{
+    background: #4805f0;
+    display: inline-flex;
+    border: 0;
+    outline: 0;
+    align-items: center;
+    border-radius: 3px;
+    padding: 6px 13px;
+    color: #fff;
+    cursor: pointer;
+}    */

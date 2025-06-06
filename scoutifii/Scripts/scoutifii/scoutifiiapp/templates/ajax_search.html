@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- <div class="my-1 py-1"></div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12"></div>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body"><h5 class="card-title">User Post</h5>
+                            <div class="scroll-area-lg">
+                                <div class="scrollbar-container">
+                                    {% if posts.count > 0 %}
+                                        {% for post in posts %}
+                                    <div class="font-icon-wrapper font-icon-lg">
+                                        <!-- <a href="profile/{{users.user}}"><img class="rounded-circle" src="{{users.profileimg.url}}" alt="profile" width="45"></a> -->
+                                        <!-- <span class="text-muted"><a href="profile/{{users.user}}"><b>{{users.user}}</b></a></span> | 
+                                        <span class="text-muted">{{users.profile_type_data}}</span> | -->  
+                                        <span class="text-muted">{{post.video_name}}</span>
+                                    </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <li>No posts...</li>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+{% endblock %}

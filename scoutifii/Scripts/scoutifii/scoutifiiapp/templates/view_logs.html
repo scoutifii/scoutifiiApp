@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Log Report
+{% endblock %}
+{% block content %}
+<div class="col-md-6 col-sm-6 col-lg-12 offset-sm-0">
+  <div class="main-card-s mb-3 card">
+    <div class="card-body"><h5 class="card-title text-center">Log Report</h5>
+      <table id="myTable">
+        <!-- <thead class="table-success">
+            <tr>
+              <th>User</th>
+              <th>Activity</th>
+              <th>IP Address</th>
+              <th>Url</th>                                       
+              <th>Created Date</th>  
+           </tr>
+        </thead>
+        <!-- JSON Response from backend ->
+        <tbody>
+        {% for log in log_list reversed %}
+          <tr>
+            <td width="10%">{{log.username}}</td>
+            <td width="10%">{{log.activity}}</td>
+            <td width="10%">{{log.ip_address}}</td>
+            <td width="20%">{{log.url}}</td>
+            <td width="10%">{{log.created_at}}</td>
+          </tr>
+        {% endfor %}
+        </tbody> --> 
+      </table>
+    </div>
+  </div>
+</div>
+  {% block extra_script %}
+    <!-- <script type="text/javascript">
+      $(document).ready(function() {
+        $('#datatable-responsive thead tr')
+        .clone(true)
+        .addClass('filters')
+        .appendTo('#datatable-responsive thead');
+
+        $('#datatable-responsive').DataTable({
+          "ajax": "log",
+          "columns": [
+              {"log_data": "username"},
+              {"log_data": "activity"},
+              {"log_data": "ip_address"},
+              {"log_data": "url"},
+              {"log_data": "created_at"},
+            ],
+
+          paging: true,
+          pageLength: 10,
+          lengthChange: true,
+          autoWidth: false,
+          searching:true,
+          bInfo: true,
+          bSort: true,
+            dom: 'Bfrtip',
+            iDisplayLength: 15,
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+                'pageLength'
+            ],
+            search: true
+        });
+      });     
+    </script> -->
+  {% endblock %}
+{% endblock %}
