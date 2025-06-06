@@ -1,0 +1,11 @@
+upstream django{
+	server scoutiffiApp:5000
+}
+
+server{
+	listen: 80;
+	server_name localhost;
+	location / {
+		proxy_pass http://django
+	}
+}
