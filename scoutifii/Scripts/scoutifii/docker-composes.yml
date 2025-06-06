@@ -1,0 +1,39 @@
+services:
+  postgres:
+    container-name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: scoutifii
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      -"5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container-name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-Sparc123*}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@scoutifii.com}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+
+    ports:
+      -"5050:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  networks:
+    postgres:
+      driver: bridge
+
+volumes:
+  postgres: {}
+  pgadmin: {}

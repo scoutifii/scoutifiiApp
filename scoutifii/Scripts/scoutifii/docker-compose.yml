@@ -1,0 +1,53 @@
+version: '3.9'
+services:
+  nginx: 
+    build: ./nginx
+    image: nginx
+    container_name: "nginx_container"
+    ports:
+      - 80:80
+    depends_on:
+      - scoutifiiApp
+  scoutifiiApp:
+    depends_on:
+      - db
+    build:
+      context: ../scoutify
+      dockerfile: Dockerfile
+    image: scoutify:v1
+    container_name: "scoutifii_container"
+    environment:
+      - PORT:5000
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
+    command: sh -c "chmod +x /app/migrate.sh && sh /app/migrate.sh && /app/entrypoint.sh"
+    volumes:
+      - staticfiles:/app/staticfiles/
+      - .:/app    
+  db:
+    image: mysql:8
+    restart: always
+    command: ['mysqld','--character-set-server=utf8mb4']
+    container_name: "db_container"
+    env_file:
+      - .env
+    expose:
+      - 3306
+    ports:
+      - "33066:3306"
+    volumes:
+     - ./data/mysql/db:/var/lib/mysql
+    
+    networks:
+      - db
+
+networks:
+    db:
+      driver: bridge
+
+volumes:
+  staticfiles:
+    external: true
+  mysql_data: {}
