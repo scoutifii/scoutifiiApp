@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="too_many_attempts">
+    <p>You have exceeded the maximum number of login attempts. Please try again later</p>
+    <p>If your having trouble remembering your password, you can <a href="{% url 'password_reset' %}">Reset Password</a></p>
+</div>
+{% endblock %}

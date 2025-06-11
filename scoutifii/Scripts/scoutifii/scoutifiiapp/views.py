@@ -3,6 +3,7 @@ import pandas as pd
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, StreamingHttpResponse, HttpResponseServerError
 from django.contrib.auth.models import User, auth
+from django.core.cache import cache
 from django.contrib import messages
 from .models import (AllLogins, Profile, Post, Comment, Room, Messaging,
                       LikePost, Notification, VideoCounts, Ads,
@@ -169,6 +170,11 @@ def signup(request):
             return redirect('signup')
     else:
      return redirect('index')
+ 
+def track_login_attempts(request, username):
+    attempts = cache.get(f'login_attempts_{username}', 0)
+    cache.set(f'login_attempts_{username}', attempts + 1, 60 * 60)
+    return attempts + 1     
 
 def login(request):
     if request.user.is_authenticated:
@@ -178,13 +184,19 @@ def login(request):
         host       = request.META['SERVER_NAME']
         if request.method == 'POST':
             username = request.POST['username']
-            password = request.POST['password']            
+            password = request.POST['password']
+            attempts = track_login_attempts(request, username)
+            
+            if attempts > 3:
+                # Handle too many login attempts
+                return render(request, "too_many_attempts.html") 
             
             user = auth.authenticate(username=username, password=password)
             
             if user is not None:
                 if user.is_active:
                     auth.login(request, user)
+                    cache.delete(f'login_attempts_{username}') 
                     AllLogins.objects.create(user=request.user, username=request.user.username, ip_address=ip_address, server=host)
                     return redirect('dashboard')
                 else:
